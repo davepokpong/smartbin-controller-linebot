@@ -45,11 +45,11 @@ app.post('/webhook', (req, res) => {
         reply(reply_token, replymsg)
     } else if (msg === 'turnleft') {
         replymsg = 'Turning left'
-        bin_operator("turnleft")
+        bin_operator("turnright")
         reply(reply_token, replymsg)
     } else if (msg === 'turnright') {
         replymsg = 'Turning right'
-        bin_operator("turnright")
+        bin_operator("turnleft")
         reply(reply_token, replymsg)
     } else {
         replymsg = 'Please choose option from menu.'
