@@ -104,10 +104,10 @@ function bin_operator(op) {
         let res = axios.get("https://smart-bin-controller-server.herokuapp.com/setspeed?spd=200")
         return
     } else if (op === "turnleft") {
-        let res = axios.get("https://smart-bin-controller-server.herokuapp.com/turn?state=left")
+        let res = axios.get("https://smart-bin-controller-server.herokuapp.com/turn?left=1&right=0")
         return
     } else if (op === "turnright") {
-        let res = axios.get("https://smart-bin-controller-server.herokuapp.com/turn?state=right")
+        let res = axios.get("https://smart-bin-controller-server.herokuapp.com/turn?left=0&right=1")
         return
     }
 }
