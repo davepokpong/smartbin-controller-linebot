@@ -59,7 +59,7 @@ function reply(reply_token, msg) {
 
 function bin_operator(op) {
     if (op === "start") {
-        let res = axios.get("https://smart-bin-controller-server.herokuapp.com/moving?state=1")
+        let res = axios.get("https://smart-bin-controller-server.herokuapp.com/moving?state=1&setspeed=100")
         return
     } else if (op === "speed") {
         let res = axios.get("https://smart-bin-controller-server.herokuapp.com/setspeed?state=increase")
