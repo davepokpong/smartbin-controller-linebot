@@ -24,6 +24,18 @@ app.post('/webhook', async (req, res) => {
         replymsg = 'Slowing Down'
         bin_operator("slow")
         reply(reply_token, replymsg)
+    } else if (msg === 'speed100') {
+        replymsg = 'Set speed to 100'
+        bin_operator("speed100")
+        reply(reply_token, replymsg)
+    } else if (msg === 'speed150') {
+        replymsg = 'Set speed to 150'
+        bin_operator("speed150")
+        reply(reply_token, replymsg)
+    } else if (msg === 'speed200') {
+        replymsg = 'Set speed to 200'
+        bin_operator("speed200")
+        reply(reply_token, replymsg)
     } else {
         replymsg = 'Please choose option from menu.'
         reply(reply_token, replymsg)
@@ -66,6 +78,15 @@ function bin_operator(op) {
         return
     } else if (op === "slow") {
         let res = axios.get("https://smart-bin-controller-server.herokuapp.com/setspeed?state=decrease")
+        return
+    } else if (op === "speed100") {
+        let res = axios.get("https://smart-bin-controller-server.herokuapp.com/setspeed?spd=100")
+        return
+    } else if (op === "speed150") {
+        let res = axios.get("https://smart-bin-controller-server.herokuapp.com/setspeed?spd=150")
+        return
+    } else if (op === "speed200") {
+        let res = axios.get("https://smart-bin-controller-server.herokuapp.com/setspeed?spd=200")
         return
     }
 }
