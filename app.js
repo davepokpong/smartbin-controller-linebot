@@ -8,9 +8,14 @@ const port = process.env.PORT || 4000
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
- 
+function getData(){
+    let res = axios.get("https://smart-bin-controller-server.herokuapp.com/")
+    return res
+}
 
 app.post('/webhook', (req, res) => {
+    let data = getData()
+    console.log(data.data)
     let reply_token = req.body.events[0].replyToken
     let msg = req.body.events[0].message.text
     let replymsg
