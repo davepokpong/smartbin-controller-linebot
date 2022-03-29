@@ -43,6 +43,14 @@ app.post('/webhook', (req, res) => {
         replymsg = 'Set speed to 200'
         bin_operator("speed200")
         reply(reply_token, replymsg)
+    } else if (msg === 'turnleft') {
+        replymsg = 'Turning left'
+        bin_operator("turnleft")
+        reply(reply_token, replymsg)
+    } else if (msg === 'turnright') {
+        replymsg = 'Turning right'
+        bin_operator("turnright")
+        reply(reply_token, replymsg)
     } else {
         replymsg = 'Please choose option from menu.'
         reply(reply_token, replymsg)
@@ -94,6 +102,12 @@ function bin_operator(op) {
         return
     } else if (op === "speed200") {
         let res = axios.get("https://smart-bin-controller-server.herokuapp.com/setspeed?spd=200")
+        return
+    } else if (op === "turnleft") {
+        let res = axios.get("https://smart-bin-controller-server.herokuapp.com/turn?state=left")
+        return
+    } else if (op === "turnright") {
+        let res = axios.get("https://smart-bin-controller-server.herokuapp.com/turn?state=right")
         return
     }
 }
